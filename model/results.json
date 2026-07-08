@@ -1,0 +1,55 @@
+{
+  "models": [
+    {
+      "model": "Logistic Regression (no weights)",
+      "macro_F1": 0.686,
+      "accuracy": 0.841,
+      "PR_AUC": 0.569,
+      "F1_bad": 0.465
+    },
+    {
+      "model": "Logistic Regression (balanced)",
+      "macro_F1": 0.669,
+      "accuracy": 0.757,
+      "PR_AUC": 0.57,
+      "F1_bad": 0.498
+    },
+    {
+      "model": "XGBoost (scale_pos_weight)",
+      "macro_F1": 0.854,
+      "accuracy": 0.903,
+      "PR_AUC": 0.859,
+      "F1_bad": 0.769
+    }
+  ],
+  "confusion_xgb": [
+    [
+      883,
+      71
+    ],
+    [
+      45,
+      193
+    ]
+  ],
+  "imbalance_test": [
+    {
+      "strategy": "scale_pos_weight",
+      "macro_F1": 0.854,
+      "F1_bad": 0.769,
+      "defaulters_caught": "193/238"
+    },
+    {
+      "strategy": "SMOTE",
+      "macro_F1": 0.838,
+      "F1_bad": 0.738,
+      "defaulters_caught": "169/238"
+    },
+    {
+      "strategy": "none",
+      "macro_F1": 0.832,
+      "F1_bad": 0.722,
+      "defaulters_caught": "151/238"
+    }
+  ]
+}

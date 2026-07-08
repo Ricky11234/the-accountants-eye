@@ -1,0 +1,15 @@
+{
+  "BAD": "TARGET \u2014 1 if the applicant defaulted or became seriously delinquent on the loan, 0 if repaid.",
+  "LOAN": "Amount of the loan requested (USD).",
+  "MORTDUE": "Amount currently owed on the applicant's existing mortgage (USD).",
+  "VALUE": "Current assessed value of the applicant's property (USD).",
+  "REASON": "Purpose of the loan \u2014 DebtCon (debt consolidation) or HomeImp (home improvement).",
+  "JOB": "Applicant's occupation category (Mgr, Office, Other, ProfExe, Sales, Self).",
+  "YOJ": "Years at present job \u2014 a proxy for employment stability.",
+  "DEROG": "Number of major derogatory reports on the applicant's credit file (e.g. serious defaults, collections).",
+  "DELINQ": "Number of delinquent credit lines (accounts with missed/late payments).",
+  "CLAGE": "Age of the applicant's oldest credit line, in months \u2014 longer history signals a more established borrower.",
+  "NINQ": "Number of recent credit inquiries \u2014 frequent inquiries can indicate active credit-seeking / financial stress.",
+  "CLNO": "Total number of credit lines the applicant holds.",
+  "DEBTINC": "Debt-to-income ratio \u2014 monthly debt obligations divided by monthly income. Higher = more stretched."
+}

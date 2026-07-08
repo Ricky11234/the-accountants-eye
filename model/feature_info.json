@@ -1,0 +1,45 @@
+{
+  "num_cols": [
+    "LOAN",
+    "MORTDUE",
+    "VALUE",
+    "YOJ",
+    "DEROG",
+    "DELINQ",
+    "CLAGE",
+    "NINQ",
+    "CLNO",
+    "DEBTINC"
+  ],
+  "cat_cols": [
+    "REASON",
+    "JOB"
+  ],
+  "all_features": [
+    "LOAN",
+    "MORTDUE",
+    "VALUE",
+    "YOJ",
+    "DEROG",
+    "DELINQ",
+    "CLAGE",
+    "NINQ",
+    "CLNO",
+    "DEBTINC",
+    "REASON",
+    "JOB"
+  ],
+  "recommended_threshold": 0.35,
+  "job_categories": [
+    "Mgr",
+    "Office",
+    "Other",
+    "ProfExe",
+    "Sales",
+    "Self"
+  ],
+  "reason_categories": [
+    "DebtCon",
+    "HomeImp"
+  ]
+}
