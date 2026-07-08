@@ -103,7 +103,7 @@ if section == "Overview":
         "Every feature used by the model is known at **application time** — no "
         "post-outcome information leaks in. That discipline is what makes the "
         "results trustworthy.",
-        icon="▚",
+        icon="🔒",
     )
 
 
@@ -360,13 +360,13 @@ elif section == "Live predictor":
                     f"**Flagged high-risk** — probability {prob:.1%} is at or above "
                     f"the {threshold:.0%} threshold. Recommend manual review / "
                     f"decline.",
-                    icon="▲",
+                    icon="⚠️",
                 )
             else:
                 st.success(
                     f"**Within tolerance** — probability {prob:.1%} is below the "
                     f"{threshold:.0%} threshold. Recommend approve.",
-                    icon="▚",
+                    icon="✅",
                 )
         st.caption(
             "This is a demonstration model on a public dataset, not a real lending "
