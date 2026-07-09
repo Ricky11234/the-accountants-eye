@@ -1,25 +1,44 @@
 {
   "models": [
     {
-      "model": "Logistic Regression (no weights)",
-      "macro_F1": 0.686,
-      "accuracy": 0.841,
-      "PR_AUC": 0.569,
-      "F1_bad": 0.465
-    },
-    {
-      "model": "Logistic Regression (balanced)",
-      "macro_F1": 0.669,
-      "accuracy": 0.757,
-      "PR_AUC": 0.57,
-      "F1_bad": 0.498
-    },
-    {
       "model": "XGBoost (scale_pos_weight)",
       "macro_F1": 0.854,
       "accuracy": 0.903,
       "PR_AUC": 0.859,
+      "F1_good": 0.938,
       "F1_bad": 0.769
+    },
+    {
+      "model": "SVM RBF (balanced)",
+      "macro_F1": 0.777,
+      "accuracy": 0.846,
+      "PR_AUC": 0.71,
+      "F1_good": 0.901,
+      "F1_bad": 0.653
+    },
+    {
+      "model": "Logistic Reg (no weights)",
+      "macro_F1": 0.686,
+      "accuracy": 0.841,
+      "PR_AUC": 0.569,
+      "F1_good": 0.907,
+      "F1_bad": 0.465
+    },
+    {
+      "model": "SVM linear (balanced)",
+      "macro_F1": 0.675,
+      "accuracy": 0.766,
+      "PR_AUC": 0.57,
+      "F1_good": 0.847,
+      "F1_bad": 0.503
+    },
+    {
+      "model": "Logistic Reg (balanced)",
+      "macro_F1": 0.669,
+      "accuracy": 0.757,
+      "PR_AUC": 0.57,
+      "F1_good": 0.839,
+      "F1_bad": 0.498
     }
   ],
   "confusion_xgb": [
@@ -50,6 +69,104 @@
       "macro_F1": 0.832,
       "F1_bad": 0.722,
       "defaulters_caught": "151/238"
+    }
+  ],
+  "importance": [
+    {
+      "feature": "DEBTINC",
+      "mutual_info": 0.1673,
+      "perm_importance": 0.2805,
+      "mi_rank": 1,
+      "perm_rank": 1,
+      "rank_gap": 0
+    },
+    {
+      "feature": "DELINQ",
+      "mutual_info": 0.0488,
+      "perm_importance": 0.1025,
+      "mi_rank": 4,
+      "perm_rank": 2,
+      "rank_gap": 2
+    },
+    {
+      "feature": "CLAGE",
+      "mutual_info": 0.0348,
+      "perm_importance": 0.0645,
+      "mi_rank": 5,
+      "perm_rank": 3,
+      "rank_gap": 2
+    },
+    {
+      "feature": "CLNO",
+      "mutual_info": 0.019,
+      "perm_importance": 0.04,
+      "mi_rank": 9,
+      "perm_rank": 4,
+      "rank_gap": 5
+    },
+    {
+      "feature": "DEROG",
+      "mutual_info": 0.0303,
+      "perm_importance": 0.0354,
+      "mi_rank": 6,
+      "perm_rank": 5,
+      "rank_gap": 1
+    },
+    {
+      "feature": "YOJ",
+      "mutual_info": 0.024,
+      "perm_importance": 0.0323,
+      "mi_rank": 7,
+      "perm_rank": 6,
+      "rank_gap": 1
+    },
+    {
+      "feature": "MORTDUE",
+      "mutual_info": 0.0226,
+      "perm_importance": 0.0259,
+      "mi_rank": 8,
+      "perm_rank": 7,
+      "rank_gap": 1
+    },
+    {
+      "feature": "VALUE",
+      "mutual_info": 0.068,
+      "perm_importance": 0.0256,
+      "mi_rank": 2,
+      "perm_rank": 8,
+      "rank_gap": -6
+    },
+    {
+      "feature": "LOAN",
+      "mutual_info": 0.0541,
+      "perm_importance": 0.0221,
+      "mi_rank": 3,
+      "perm_rank": 9,
+      "rank_gap": -6
+    },
+    {
+      "feature": "JOB",
+      "mutual_info": 0.0053,
+      "perm_importance": 0.0192,
+      "mi_rank": 12,
+      "perm_rank": 10,
+      "rank_gap": 2
+    },
+    {
+      "feature": "NINQ",
+      "mutual_info": 0.018,
+      "perm_importance": 0.0188,
+      "mi_rank": 10,
+      "perm_rank": 11,
+      "rank_gap": -1
+    },
+    {
+      "feature": "REASON",
+      "mutual_info": 0.009,
+      "perm_importance": 0.003,
+      "mi_rank": 11,
+      "perm_rank": 12,
+      "rank_gap": -1
     }
   ]
 }
