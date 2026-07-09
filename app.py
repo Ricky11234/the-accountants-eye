@@ -381,9 +381,65 @@ elif section == "Feature importance":
         "uses. The *gap* is the real insight."
     )
 
+    with st.expander("What exactly are these two scores? (the methods behind the columns)"):
+        st.markdown(
+            "**`mutual_info` — model-free, from `mutual_info_classif`.** Mutual "
+            "information is an *information-theoretic* measure (based on Shannon "
+            "entropy): how much does knowing a feature's value reduce uncertainty about "
+            "default? It is **0** under independence and grows with shared information, "
+            "and — unlike correlation — it captures **any** dependency, linear or "
+            "non-linear. It is *model-free* because it is computed directly from the "
+            "data distribution (a k-nearest-neighbour estimator), with **no classifier "
+            "trained**. It answers: *does this feature carry signal at all?*\n\n"
+            "**`perm_importance` — model-based, from `permutation_importance`.** For the "
+            "fitted XGBoost: record its **PR-AUC**, then randomly **shuffle one "
+            "feature's column** (destroying its link to the target), and re-score. The "
+            "**drop in PR-AUC** is that feature's importance — repeated 20× per feature "
+            "for stable estimates. It answers: *how much does the trained model actually "
+            "rely on this feature?*\n\n"
+            "**Why the gap is meaningful.** The two measure different things — raw, "
+            "univariate signal vs model-specific reliance — so where they diverge is "
+            "informative. A related model-free check in the notebook, the **ANOVA "
+            "F-test** (`f_classif`), measures only *linear* mean-separation; its "
+            "disagreement with mutual information is itself a fingerprint of "
+            "non-linearity."
+        )
+
     if "importance" in results:
         idf = pd.DataFrame(results["importance"])
         st.dataframe(idf, use_container_width=True, hide_index=True)
+
+    st.subheader("The ANOVA F-test — the third (linear) lens")
+    callout(
+        "A second <b>model-free</b> test, <span class='mono'>f_classif</span> (one-way "
+        "ANOVA), measures how strongly each feature <i>linearly</i> separates the "
+        "default vs non-default groups by their means. It disagrees with mutual "
+        "information in a revealing way:",
+        "key",
+    )
+    fstat = pd.DataFrame([
+        {"feature": "DELINQ", "F_stat": 813.0, "mutual_info": 0.0488, "reading": "huge F, modest MI"},
+        {"feature": "DEROG",  "F_stat": 468.2, "mutual_info": 0.0303, "reading": "huge F, modest MI"},
+        {"feature": "NINQ",   "F_stat": 177.4, "mutual_info": 0.0180, "reading": "high F, low MI"},
+        {"feature": "CLAGE",  "F_stat": 168.0, "mutual_info": 0.0348, "reading": "balanced"},
+        {"feature": "DEBTINC","F_stat": 145.8, "mutual_info": 0.1673, "reading": "modest F, top MI"},
+        {"feature": "LOAN",   "F_stat": 33.8,  "mutual_info": 0.0541, "reading": "—"},
+        {"feature": "CLNO",   "F_stat": 0.1,   "mutual_info": 0.0190, "reading": "≈ zero linear signal"},
+    ])
+    st.dataframe(fstat, use_container_width=True, hide_index=True)
+    callout(
+        "<b>Why they disagree — and what it proves.</b> The F-test sees only <i>linear "
+        "mean-separation</i>; mutual information sees <i>any</i> dependency. "
+        "<span class='mono'>DELINQ</span> and <span class='mono'>DEROG</span> post "
+        "enormous F-stats (813, 468) but only modest MI — because they are zero for most "
+        "applicants with a small high-risk tail, which produces a large group-mean "
+        "difference (high F) while the mass of shared zeros dilutes the overall MI. That "
+        "is the univariate fingerprint of a <b>threshold effect</b> — the exact "
+        "non-linearity the binned EDA plots showed. And "
+        "<span class='mono'>CLNO</span>'s F-stat of <b>0.1</b> (essentially no linear "
+        "signal) is what makes its high model-based importance so striking: pure "
+        "interaction, invisible to any linear test.",
+    )
 
     callout(
         "<span class='mono'>rank_gap</span> = model-free rank − model-based rank. "
