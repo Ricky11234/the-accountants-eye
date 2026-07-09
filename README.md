@@ -8,7 +8,7 @@ loan dataset (5,960 applicants, ~20% default rate). It runs from raw data throug
 preprocessing decisions, a five-model comparison, a two-view feature-importance
 analysis, imbalance handling, and a deployed interactive predictor.
 
-**Live app:** _(add your Streamlit Cloud URL here)_
+**Live app:** https://the-accountants-eye-wst9bx2sefgwux62wfbxtq.streamlit.app/
 
 ## Headline result — five models on a held-out test set
 
