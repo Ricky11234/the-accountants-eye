@@ -1,7 +1,7 @@
 [project]
 name = "the-accountants-eye"
 version = "0.1.0"
-description = "Add your description here"
+description = "Leakage-safe credit default risk model on HMEQ with XGBoost and a Streamlit app"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []

@@ -74,6 +74,7 @@ streamlit run app.py
 ```
 ├── app.py                 # Streamlit storytelling app + live predictor
 ├── requirements.txt       # versions pinned to the training environment
+├── LICENSE
 ├── model/
 │   ├── credit_risk_pipeline.joblib   # full pipeline: preprocessing + XGBoost
 │   ├── feature_info.json

@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+.env
+
+# OS files
+desktop.ini
+Thumbs.db
+.DS_Store
